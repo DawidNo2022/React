@@ -3,7 +3,7 @@ import Card from '../Card/Card.js';
 import CardForm from '../CardForm/CardForm.js';
 import { useSelector } from 'react-redux';
 
-const Column = ({ id, title, icon, addCard }) => {
+const Column = ({ id, title, icon }) => {
   //przerobic propsy w reszcie komp
   const cards = useSelector((state) => state.cards).filter(
     (card) => card.columnId === id
@@ -20,7 +20,7 @@ const Column = ({ id, title, icon, addCard }) => {
           <Card key={card.id} title={card.title} />
         ))}
       </ul>
-      <CardForm columnId={id} action={addCard} />
+      <CardForm columnId={id} />
     </article>
   );
 };
