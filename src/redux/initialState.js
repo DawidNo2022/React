@@ -1,5 +1,5 @@
 const initialState = {
-  searchString: { searchString: '' },
+  searchString: { searchString: '' }, //inny zapis searchString: '', searchText:''??
   columns: [
     {
       id: 1,

@@ -5,11 +5,13 @@ import Button from './../Button/Button.js';
 import TextInput from './../TextInput/TextInput.js';
 
 const CardForm = ({ columnId }) => {
+
   const [title, setTitle] = useState('');
   const dispatch = useDispatch();
+  
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch({ type: 'ADD_CARD', payload: { title, columnId } });
+    dispatch({ type: 'ADD_CARD', payload: { columnId, title } });
     //action({ title: title }, columnId);
     setTitle('');
   };
