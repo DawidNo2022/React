@@ -3,10 +3,11 @@ import { useSelector } from 'react-redux';
 import styles from './List.module.scss'; //style ostatnie
 import Column from '../Column/Column.js';
 import ColumnForm from '../ColumnForm/ColumnForm.js';
+import { getAllColumns } from '../../redux/store.js';
 
 const List = () => {
   //funkcja strzalkowa
-  const columns = useSelector((state) => state.columns);
+  const columns = useSelector(getAllColumns);
 
   return (
     //co ma zwracac dany komponent

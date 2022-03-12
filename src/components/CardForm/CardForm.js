@@ -3,15 +3,15 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Button from './../Button/Button.js';
 import TextInput from './../TextInput/TextInput.js';
+import { addCard } from '../../redux/store';
 
 const CardForm = ({ columnId }) => {
-
   const [title, setTitle] = useState('');
   const dispatch = useDispatch();
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch({ type: 'ADD_CARD', payload: { columnId, title } });
+    dispatch(addCard({ columnId, title }));
     //action({ title: title }, columnId);
     setTitle('');
   };
