@@ -1,4 +1,5 @@
 const initialState = {
+  searchString: { searchString: '' },
   columns: [
     {
       id: 1,
