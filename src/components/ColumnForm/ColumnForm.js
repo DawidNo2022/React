@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Button from '../Button/Button.js';
 import TextInput from '../TextInput/TextInput.js';
-import { addColumn } from '../../redux/store';
+import { addColumn } from '../../redux/columnRedux';
 
 const ColumnForm = ({ listId }) => {
   const [title, setTitle] = useState(''); //zmienna stanu + funkcja do modyfikacji stanu(setValue)

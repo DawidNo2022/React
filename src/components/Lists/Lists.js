@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux';
-import { getAllList } from '../../redux/store';
+import { getAllList } from '../../redux/listsRedux';
 import styles from './Lists.module.scss';
 import { Link } from 'react-router-dom';
 import ListForm from '../ListForm/ListForm';

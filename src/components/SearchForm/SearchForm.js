@@ -3,7 +3,7 @@ import Button from '../Button/Button.js';
 import styles from './SearchForm.module.scss';
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { updateSearchString } from '../../redux/store.js';
+import { updateSearchString } from '../../redux/searchStringRedux';
 const SearchForm = () => {
   //const string = useSelector((state) => state.searchString);
   const [searchString, setSearchString] = useState('');

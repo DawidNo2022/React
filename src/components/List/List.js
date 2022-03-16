@@ -5,7 +5,8 @@ import styles from './List.module.scss'; //style ostatnie
 import Column from '../Column/Column.js';
 import ColumnForm from '../ColumnForm/ColumnForm.js';
 import SearchForm from '../SearchForm/SearchForm.js';
-import { getColumnsByList, getListById } from '../../redux/store.js';
+import { getListById } from '../../redux/listsRedux';
+import { getColumnsByList } from '../../redux/columnRedux';
 
 const List = () => {
   //funkcja strzalkowa
