@@ -5,14 +5,14 @@ import Button from '../Button/Button.js';
 import TextInput from '../TextInput/TextInput.js';
 import { addColumn } from '../../redux/store';
 
-const ColumnForm = (props) => {
+const ColumnForm = ({ listId }) => {
   const [title, setTitle] = useState(''); //zmienna stanu + funkcja do modyfikacji stanu(setValue)
   const [icon, setIcon] = useState('');
   const dispatch = useDispatch();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addColumn({ title, icon }));
+    dispatch(addColumn({ title, icon, listId }));
 
     setTitle('');
     setIcon('');

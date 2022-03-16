@@ -1,25 +1,28 @@
 import { useSelector } from 'react-redux';
-
+import { useParams } from 'react-router';
+import { Navigate } from 'react-router-dom';
 import styles from './List.module.scss'; //style ostatnie
 import Column from '../Column/Column.js';
 import ColumnForm from '../ColumnForm/ColumnForm.js';
-import { getAllColumns } from '../../redux/store.js';
+import SearchForm from '../SearchForm/SearchForm.js';
+import { getColumnsByList, getListById } from '../../redux/store.js';
 
 const List = () => {
   //funkcja strzalkowa
-  const columns = useSelector(getAllColumns);
+  const { listId } = useParams();
+  const columns = useSelector((state) => getColumnsByList(state, listId));
+  const listData = useSelector((state) => getListById(state, listId));
 
+  console.log(columns);
+  if (!listData) return <Navigate to='/' />;
   return (
     //co ma zwracac dany komponent
     <div className={styles.form}>
       <header className={styles.header}>
-        <h2 className={styles.title}>
-          Things to do<span>soon</span>
-        </h2>
+        <h2 className={styles.title}>{listData.title}</h2>
       </header>
-      <p className={styles.description}>
-        Interesting things I want to check out
-      </p>
+      <p className={styles.description}>{listData.description}</p>
+      <SearchForm />
       <section className={styles.columns}>
         {columns.map((column) => (
           <Column
@@ -28,7 +31,7 @@ const List = () => {
           /> //key nie uzywac indexu array
         ))}
       </section>
-      <ColumnForm />
+      <ColumnForm listId={listId} />
     </div>
   );
 };

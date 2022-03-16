@@ -2,12 +2,17 @@ import TextInput from '../TextInput/TextInput.js';
 import Button from '../Button/Button.js';
 import styles from './SearchForm.module.scss';
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { updateSearchString } from '../../redux/store.js';
 const SearchForm = () => {
+  //const string = useSelector((state) => state.searchString);
   const [searchString, setSearchString] = useState('');
 
   const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(updateSearchString(''));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(updateSearchString(searchString));
@@ -19,7 +24,11 @@ const SearchForm = () => {
   };
   return (
     <form className={styles.searchForm} onSubmit={handleSubmit}>
-      <TextInput placeholder='Search...' onChange={handleSetSearch} />
+      <TextInput
+        placeholder='Search...'
+        onChange={handleSetSearch}
+        value={searchString}
+      />
       <Button>
         <span className='fa fa-search' />
       </Button>
